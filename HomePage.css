@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: black;
+}
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+}
+header .logo{
+   display: flex;
+   align-items: center;
+}
+header .logo img{
+    height: 30px;
+    margin-right: 20px;
+}
+nav ul{
+    list-style: none;
+    display: flex;
+}
+nav li{
+    margin: 0 15px;
+}
+nav a{
+    text-decoration: none;
+    color:white;
+    font-size: 18px;
+}
+nav a:hover{
+    color:#f39c12
+}
