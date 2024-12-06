@@ -1,28 +1,71 @@
-<!DOCTYPE html>
-<html lang="sq">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - MobileShop</title>
-  <link rel="stylesheet" href="login in.css">
-</head>
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Mobile Shop - Login & Register</title>  
+    <link rel="stylesheet" href="stylee.css">  
+</head>  
 <body>
-  <div class="overlay">
-    <div class="login-container">
-      <h2>Kyçu në llogari</h2>
-      <form id="loginForm">
-        <label for="username">Përdoruesi</label>
-        <input type="text" id="username" placeholder="Shkruaj përdoruesin" required>
-        
-        <label for="password">Fjalëkalimi</label>
-        <input type="password" id="password" placeholder="Shkruaj fjalëkalimin" required>
-        
-        <button type="button" onclick="login()">Kyçu</button>
-      </form>
-      <p>Akoma nuk ke një llogari? <a href="Register page1.html">Regjistrohu këtu!</a></p>
-    </div>
-  </div>
+    <div class="container">    
+        <div class="form-container" id="form-container">  
+              
+            <div class="form login-form active">  
+                <img src="C:\Users\Admin\Downloads\mobishoploxo-removebg-preview.png" alt="Loxo Mobishop Logo" class="form-logo">  
+                <h2>Login</h2>  
+                <form id="login-form" onsubmit="return login(event)">  
+                    <div class="input-group">  
+                        <label for="login-email">Email</label>  
+                        <input type="email" id="login-email" placeholder="Enter your email" required>  
+                    </div>  
+                    <div class="input-group">  
+                        <label for="login-password">Password</label>  
+                        <input type="password" id="login-password" placeholder="Enter your password" required>  
+                    </div>  
+                    <button type="submit">Login</button>  
+                    <p class="switch-form">Don't have an account? <a href="#" onclick="switchForm()">Register here</a></p>  
+                </form>  
+            </div>  
 
-  <script src="function.js"></script>
-</body>
+            <div class="form register-form">  
+                <img src="C:\Users\Admin\Downloads\mobishoploxo-removebg-preview.png" alt="Loxo Mobishop Logo" class="form-logo">  
+                <h2>Register</h2>  
+                <form id="register-form" onsubmit="return register(event)">  
+                    <div class="input-group">  
+                        <label for="register-name">Name</label>  
+                        <input type="text" id="register-name" placeholder="Enter your name" required>  
+                    </div>  
+                    <div class="input-group">  
+                        <label for="register-email">Email</label>  
+                        <input type="email" id="register-email" placeholder="Enter your email" required>  
+                    </div>  
+                    <div class="input-group">  
+                        <label for="register-age">Age</label>  
+                        <input type="number" id="register-age" placeholder="Enter your age" required min="1">  
+                    </div>  
+                    <div class="input-group">  
+                        <label for="register-gender">Gender</label>  
+                        <select id="register-gender" required>  
+                            <option value="">Select your gender</option>  
+                            <option value="male">Male</option>  
+                            <option value="female">Female</option>  
+                            <option value="other">Other</option>  
+                        </select>  
+                    </div>  
+                    <div class="input-group">  
+                        <label for="register-password">Password</label>  
+                        <input type="password" id="register-password" placeholder="Enter your password" required>  
+                    </div>  
+                    <div class="input-group">  
+                        <label for="register-password-confirm">Confirm Password</label>  
+                        <input type="password" id="register-password-confirm" placeholder="Confirm your password" required>  
+                    </div>  
+                    <button type="submit">Register</button>  
+                    <p class="switch-form">Already have an account? <a href="#" onclick="switchForm()">Login here</a></p>  
+                </form>  
+            </div>  
+        </div>  
+    </div>  
+    <script src="script.js"></script>  
+</body>  
 </html>
