@@ -73,3 +73,33 @@ nav a:hover{
     padding: 10px;
     gap: 10px; 
 }
+.product-item{
+    width: 24%;
+    text-align: center;
+    background-color: #0074d9;
+    padding: 20px;
+    border-radius: 10px;
+}
+.product-item img{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+.product-item p{
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+}
+#product-discounted p:nth-of-type(3){
+    font-size: 18px;
+    font-weight: normal;
+    color: red;
+    text-decoration: line-through;
+    margin-bottom: 5px;
+}
+#product-discounted p:nth-of-type(4){
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+}
