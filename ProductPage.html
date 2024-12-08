@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomePage-LaXo MobiShop</title>
+    <link rel="stylesheet" href="ProductPage.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="C:\Users\Lenovo\Desktop\images\logo.jpg" alt="LoXo MobiShop">
+            <div>LoXo MobiShop</div>
+        </div>
+        <nav>
+        <ul>
+            <li><a href="HomePage.html">Home</a></li>
+            <li><a href="ProductPage.html">Product</a></li>
+            <li><a>AboutUs</a></li>
+            <li><a>ContactUs</a></li>
+        </ul>
+    </nav>
+    </header>
+         <main>
+            <div class="product-choice" id="brand-choice">
+                <h2>Click to Choose Product</h2>
+                <ul id="brand-list">
+                    <li onclick="showProducts('iphone')">iPhone</li>
+                    <li onclick="showProducts('samsung')">Samsung</li>
+                </ul>
+            </div>
+        <div id="product-display" class="product-grid">
+            <div id="product-discounted" class="product-item" data-brand="iphone">
+                <p>Kliko Per Te Vazhduar Blerjen</p>
+                <a href="https://gjirafa50.com/apple-iphone-16-pro-max-1tb-natural-titanium">
+                    <img src="file:///C:/Users/Lenovo/Desktop/images/iphone1.webp" alt="Iphone 16 Pro Max">
+                </a>
+                <p>Iphone 16 Pro Max-1TB</p>
+                <p>2229.50€</p>
+                <p>2249.50€</p>
+            </div>
+            <div id="product-discounted" class="product-item" data-brand="iphone">
+                <p>Kliko Per Te Vazhduar Blerjen</p>
+                <a href="https://gjirafa50.com/apple-iphone-16-pro-max-256gb-black-titanium">
+                    <img src="file:///C:/Users/Lenovo/Desktop/images/iphone2.webp" alt="Iphone 16 Pro Max">
+                </a>
+                <p>Iphone 16 Pro Max-256GB</p>
+                <p>1699.50€</p>
+                <p>1579.50€</p>
+            </div>
+            <div id="product-discounted" class="product-item" data-brand="iphone">
+                <p>Kliko Per Te Vazhduar Blerjen</p>
+                <a href="https://gjirafa50.com/apple-iphone-16-pro-128gb-desert-titanium">
+                    <img src="file:///C:/Users/Lenovo/Desktop/images/iphone3.webp" alt="Iphone 16 Pro">
+                </a>
+                <p>Iphone 16 Pro-128GB</p>
+                <p>1399.50€</p>
+                <p>1279.50€</p>
+            </div>
+            <div id="product-discounted" class="product-item" data-brand="iphone">
+                <p>Kliko Per Te Vazhduar Blerjen</p>
+                <a href="https://gjirafa50.com/apple-iphone-16-128gb-pink">
+                    <img src="file:///C:/Users/Lenovo/Desktop/images/iphone4.webp" alt="Iphone 16">
+                </a>
+                <p>Iphone 16-128GB</p>
+                <p>1099.50€</p>
+                <p>1059.50€</p>
+            </div>
+            <div id="product-discounted" class="product-item" data-brand="samsung">
+                <p>Kliko Per Te Vazhduar Blerjen</p>
+                <a href="https://gjirafa50.com/celular-samsung-galaxy-s24-12gb-256gb-onyx-black">
+                    <img src="file:///C:/Users/Lenovo/Desktop/images/samsung1.webp" alt="Samsung Galaxy S24+">
+                </a>
+                <p>Samsung Galaxy S24+-256GB</p>
+                <p>1179.50€</p>
+                <p>859.50€</p>
+            </div>
+            <div id="product-discounted" class="product-item" data-brand="samsung">
+                <p>Kliko Per Te Vazhduar Blerjen</p>
+                <a href="https://gjirafa50.com/celular-samsung-galaxy-a55-66-6gb-128gb-vjollce">
+                    <img src="file:///C:/Users/Lenovo/Desktop/images/samsung2.webp" alt="Samsung Galaxy A55">
+                </a>
+                <p>Samsung Galaxy A55-128GB</p>
+                <p>499.50€</p>
+                <p>339.00€</p>
+            </div>
+            <div id="product-discounted" class="product-item" data-brand="samsung">
+                <p>Kliko Per Te Vazhduar Blerjen</p>
+                <a href="https://gjirafa50.com/celular-samsung-galaxy-s24-62-8gb-128gb-onyx-black">
+                    <img src="file:///C:/Users/Lenovo/Desktop/images/samsung3.webp" alt="Samsung Galaxy S24">
+                </a>
+                <p>Samsung Galaxy S24-128GB</p>
+                <p>929.50€</p>
+                <p>749.00€</p>
+            </div>
+            <div id="product-discounted" class="product-item" data-brand="samsung">
+                <p>Kliko Per Te Vazhduar Blerjen</p>
+                <a href="https://gjirafa50.com/celular-samsung-galaxy-flip-6-12gb-ram-512gb-ssd-i-argjendte">
+                    <img src="file:///C:/Users/Lenovo/Desktop/images/samsung4.webp" alt="Samsung Galaxy Flip 6">
+                </a>
+                <p>Samsung Galaxy Flip 6-512GB</p>
+                <p>1399.50€</p>
+                <p>1039.50€</p>
+            </div>
+        </div>
+     </main>
+     <script>
+        function showProducts(brand){
+            const products = document.querySelectorAll('.product-item');
+            products.forEach(products => {
+                products.style.display = product.getAttribute('.data-brand')=== brand ? 'block' : 'none';
+            });
+        }
+        showProducts('iphone');
+     </script>
+</body>
