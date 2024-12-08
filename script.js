@@ -10,8 +10,10 @@ function login(event) {
     const email = document.getElementById('login-email').value;  
     const password = document.getElementById('login-password').value;  
     
-    alert(`Login successful! Email: ${email}`);  
-    document.getElementById('login-form').reset();  
+   /* alert(`Login successful! Email: ${email}`);  
+    document.getElementById('login-form').reset();*/
+    
+    window.location.href ='HomePage.html';
 }  
 
 function register(event) {  
@@ -28,6 +30,8 @@ function register(event) {
         return;  
     }  
 
-    alert(`Registration successful! Welcome, ${name}!\nAge: ${age}\nGender: ${gender}`);  
-    document.getElementById('register-form').reset();  
+   /* alert(`Registration successful! Welcome, ${name}!\nAge: ${age}\nGender: ${gender}`);  
+    document.getElementById('register-form').reset(); */
+    
+    window.location.href ='HomePage.html';
 }
