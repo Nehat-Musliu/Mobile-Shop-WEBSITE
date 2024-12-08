@@ -7,12 +7,14 @@ function switchForm() {
 
 function login(event) {  
     event.preventDefault();  
-    const email = document.getElementById('login-email').value;  
-    const password = document.getElementById('login-password').value;  
-    
-  
-    
-    window.location.href ='HomePage.html';
+    const email = document.getElementById("login-email").value;
+    const password = document.getElementById("login-password").value;
+
+    if (email === "Nehatmusliu@gmail.com" || "Erisahmeti@gmail.com" && password === "12345678") {
+      window.location.href = "HomePage.html";
+    } else {
+    alert("Emri ose fjalëkalimi është gabim! Ju lutemi provoni përsëri.");
+   }
 }  
 
 function register(event) {  
