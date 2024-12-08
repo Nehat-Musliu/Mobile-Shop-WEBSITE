@@ -107,11 +107,11 @@
      <script>
         function showProducts(brand){
             const products = document.querySelectorAll('.product-item');
-            products.forEach(products => {
-                products.style.display = product.getAttribute('.data-brand')=== brand ? 'block' : 'none';
+            products.forEach(product => {
+                product.style.display = product.getAttribute('data-brand') === brand ? 'block' : 'none';
             });
         }
-        showProducts('iphone');
+         showProducts('iphone');
      </script>
 </body>
 </html>
