@@ -38,8 +38,11 @@ h1 {
 .form-logo {  
     display: block;  
     margin: 0 auto 20px;  
-    width: 180px;  
-    height: auto;  
+     
+        width: 500px; /* Adjust the width as needed */  
+       
+        filter: hue-rotate(90deg); /* Change color using filter */   
+   
 }  
   
 .input-group {  
