@@ -12,28 +12,37 @@ header {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  
 }  
 
-nav ul {  
-    list-style: none;  
+body {  
+    margin: 0;  
+    font-family: Arial, sans-serif;  
+}  
+
+.navbar {  
+    position: absolute; /* Can also use fixed if you want it to stay on top while scrolling */  
+    top: 0;  
+    right: 0;  
+    padding: 10px;  
+}  
+
+.menu {  
+    list-style-type: none; /* Remove bullet points */  
+    margin: 0;  
     padding: 0;  
-    display: flex;  
-    justify-content: flex-end;  
 }  
 
-nav ul li {  
-    margin: 0 15px;  
+.menu li {  
+    display: inline; /* Display items in a row */  
+    margin-left: 20px; /* Space between items */  
 }  
 
-nav ul li a {  
-    text-decoration: none;  
-    color: #333;  
-    font-weight: bold;  
-    transition: color 0.3s;  
+.menu a {  
+    text-decoration: none; /* Remove underline */  
+    color: black; /* Black color for menu links */  
 }  
 
-nav ul li a:hover, nav ul li a.active {  
-    color: #007aff;  
-}  
-
+.menu a:hover {  
+    text-decoration: underline; /* Underline on hover */  
+}
 h1 {  
     margin: 0;  
     font-size: 2em;  

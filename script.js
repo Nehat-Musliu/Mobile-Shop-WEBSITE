@@ -11,7 +11,7 @@ function login(event) {
     const password = document.getElementById("login-password").value;
 
     if (email === "Nehatmusliu@gmail.com" || "Erisahmeti@gmail.com" && password === "12345678") {
-      window.location.href = "HomePage.html";
+      window.location.href = "Index.html";
     } else {
     alert("Emri ose fjalëkalimi është gabim! Ju lutemi provoni përsëri.");
    }

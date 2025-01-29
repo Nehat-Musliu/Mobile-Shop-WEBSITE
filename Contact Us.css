@@ -39,6 +39,43 @@
     margin-bottom: 10px;
 }
 
+body {  
+    margin: 0;  
+    font-family: Arial, sans-serif;  
+}  
+
+.navbar {  
+    position: absolute; /* Keeps it in place even when scrolling */  
+    top: 10px; /* Adjust this value as needed to position it vertically */  
+    right: 20px; /* Adjust this value for horizontal positioning */  
+    z-index: 1000; /* Makes sure the menu stays above other content */  
+}  
+
+.menu {  
+    list-style-type: none; /* Remove bullet points */  
+    margin: 0;  
+    padding: 0;  
+}  
+
+.menu li {  
+    display: inline; /* Display items in a row */  
+    margin-left: 15px; /* Space between items */  
+}  
+
+.menu a {  
+    text-decoration: none; /* Remove underline */  
+    color: black; /* Black color for menu links */  
+    font-size: 16px; /* Optional: Adjust font size as needed */  
+}  
+
+.menu a:hover {  
+    text-decoration: underline; /* Underline on hover */  
+}  
+
+.content {  
+    margin-top: 60px; /* Ensure content below the navbar is visible (adjust as needed) */  
+}
+
 .contact-item p {
     font-size: 16px;
     color: #555;

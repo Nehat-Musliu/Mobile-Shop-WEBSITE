@@ -1,41 +1,46 @@
 body {  
-    font-family: 'Helvetica Neue', Arial, sans-serif;  
     margin: 0;  
-    color: #333;  
-    background-color: #f9f9f9;  
+    font-family: Arial, sans-serif;  
+    background-color: #f0f0f0; /* Optional: Light gray background */  
+    padding: 20px; /* Optional: General padding */  
 }  
 
-header {  
-    background-color: white;  
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  
-    padding: 10px 20px;  
-    position: sticky;  
-    top: 0;  
-    z-index: 1000;  
+.navbar {  
+    position: absolute; /* Positioning the navbar */  
+    top: 10px; /* Adjust vertical position */  
+    right: 20px; /* Adjust horizontal position */  
+    z-index: 1000; /* Ensure it stays above other elements */  
 }  
 
-nav ul {  
-    list-style: none;  
+.menu {  
+    list-style-type: none; /* Remove bullet points */  
+    margin: 0;  
     padding: 0;  
-    display: flex;  
-    justify-content: flex-end;  
 }  
 
-nav ul li {  
-    margin: 0 15px;  
+.menu li {  
+    display: inline; /* Display items in a row */  
+    margin-left: 20px; /* Space between items */  
 }  
 
-nav ul li a {  
-    text-decoration: none;  
-    color: #333;  
-    font-weight: bold;  
-    transition: color 0.3s;  
+.menu a {  
+    text-decoration: none; /* Remove underline */  
+    color: black; /* Black text color */  
+    font-size: 16px; /* Font size for menu items */  
 }  
 
-nav ul li a:hover, nav ul li a.active {  
-    color: #007aff;  
+.menu a:hover {  
+    text-decoration: underline; /* Underline on hover */  
 }  
 
+h1, h2 {  
+    text-align: center; /* Center align headings */  
+}  
+
+footer {  
+    text-align: center; /* Center align footer text */  
+    margin-top: 20px; /* Margin above footer */  
+}
 .hero {  
     background-image: url('images/hero.jpg'); 
     background-size: cover;  

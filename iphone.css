@@ -13,9 +13,9 @@ body {
 
 .product-container {  
     display: flex;  
-    flex-wrap: wrap;   
-    justify-content: center;   
-    gap: 20px;  
+    flex-wrap: wrap; /* Allow the items to wrap to the next row */  
+    justify-content: center; /* Center the items horizontally */  
+    gap: 20px; /* Space between products */  
 }  
 
 .product {  
@@ -23,18 +23,18 @@ body {
     border: 1px solid #ccc;  
     border-radius: 10px;  
     text-align: center;  
-    flex: 1 1 200px;  
-    max-width: 250px;  
+    flex: 1 1 200px; /* Allow the items to grow and shrink, base size 200px */  
+    max-width: 250px; /* Set a maximum width for better layout control */  
     transition: transform 0.2s;  
     padding: 15px;  
 }  
 
 .product:hover {  
-    transform: scale(1.05);   
+    transform: scale(1.05); /* Slightly enlarge on hover */  
 }  
 
 .product img {  
-    width: 100%;  
+    width: 100%; /* Make the image responsive */  
     border-radius: 8px;  
 }  
 
@@ -45,15 +45,15 @@ body {
 
 .back-button {  
     position: absolute;  
-    top: 20px; 
-    left: 20px;   
-    font-size: 16px;   
+    top: 20px;  
+    left: 20px;  
+    font-size: 16px;  
     color: #007bff;  
-    text-decoration: none;  
+    text-decoration: none; 
     background: none; 
 }  
 
 .back-button:hover {  
-    text-decoration: underline;  
-    color: #0056b3;  
+    text-decoration: underline; 
+    color: #0056b3; 
 }

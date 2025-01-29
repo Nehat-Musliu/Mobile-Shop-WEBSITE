@@ -5,6 +5,6 @@ document.querySelector('form').addEventListener('submit', function(e) {
 
     if (!name || !email || !message) {
         alert('Please fill in all fields before submitting the form.');
-        e.preventDefault(); 
+        e.preventDefault(); // Prevent form submission
     }
 });
