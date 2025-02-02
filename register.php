@@ -12,9 +12,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $surname = $_POST['surname'];
     $email = $_POST['email'];
     $password = $_POST['password'];
+    $role = $_POST['role'];
+    
+
 
     // Register the user
-    if ($user->register($name, $surname, $email, $password)) {
+    if ($user->register($name, $surname, $email, $password,$role)) {
         header("Location: login.php"); // Redirect to login page
         exit;
     } else {
