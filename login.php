@@ -14,13 +14,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Attempt to log in
     if ($user->login($email, $password)) {
-        session_start();
-        $_SESSION['user_id'] = $row['id'];
-        $_SESSION['email'] = $row['email'];
-        $_SESSION['role'] = $row['role']; // Sigurohuni që roli ruhet si 'admin'
-        header("Location: dashboard.php");
+        header("Location: HomePage.php"); // Redirect to home page
         exit;
-    }
     } else {
         echo "Invalid login credentials!";
     }
@@ -39,14 +34,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="form-container">  
             <div class="form login-form active">  
                 <h2>Login</h2>  
-                <form id="login-form" method="POST">  
+                <form id="login-form" onsubmit="return login(event)">  
                     <div class="input-group">  
                         <label for="login-email">Email</label>  
-                        <input type="email" name="email"id="login-email" placeholder="Enter your email" required>  
+                        <input type="email" id="login-email" placeholder="Enter your email" required>  
                     </div>  
                     <div class="input-group">  
                         <label for="login-password">Password</label>  
-                        <input type="password"name="password" id="login-password" placeholder="Enter your password" required>  
+                        <input type="password" id="login-password" placeholder="Enter your password" required>  
                     </div>  
                     <button type="submit">Login</button>  
                     <p class="switch-form">Don't have an account? <a href="register.php">Register here</a></p>  
@@ -54,6 +49,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>  
         </div>  
     </div>  
-    < <script src="script.js"></script>  
+    <!-- <script src="script.js"></script>   -->
 </body>  
 </html>
