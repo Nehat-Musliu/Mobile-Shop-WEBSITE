@@ -19,5 +19,20 @@ class Database {
     public function getConnection() {
         return $this->conn;
     }
-}
+    
+    public function query($sql) {
+        return $this->conn->query($sql);
+    }
+
+    public function getProducts() {
+        $query = "SELECT * FROM products";
+        $stmt = $this->query($query);
+        $products = [];
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $products[] = new Product($row['name'], $row['price'], $row['photo']);
+        }
+        return $products;
+    }
+    }
+
 ?>
