@@ -159,7 +159,12 @@
     color:white;
 }
 .section-3 img{
-    height: 700px;
+    height: auto;
+    
+}
+.s3-img{
+    height: 500px;
+
 }
 .section-3{
     display: flex;

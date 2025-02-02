@@ -108,14 +108,15 @@ if (!isset($_SESSION['user_id'])) {
             background-color: #f4f4f4;  
         }  
         .slider {  
-            position: relative;  
-            max-width: 500px; /* Set the max width for the slider */  
-            padding-bottom: 100px0px;
-            margin: auto; /* Center the slider */  
-            overflow: hidden; /* Hide overflow */  
-            border: 2px solid #ddd; /* Border around the slider */  
-            border-radius: 10px; /* Rounded corners */  
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow */  
+        position: relative;
+        max-width: 500px;
+        padding-bottom: 90px;
+        margin: 50px auto;  /* Shtoni margin-top për ta ulur slider-in më poshtë */
+        overflow: hidden;
+        border: 2px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
         }  
         .slides {  
             display: flex; /* Arrange slides in a row */  
@@ -151,13 +152,13 @@ if (!isset($_SESSION['user_id'])) {
     <div class="slider">  
         <div class="slides">  
             <div class="slide">  
-                <img src="https://shop.switch.com.my/cdn/shop/files/iPhone_16_Pro_Desert_Titanium_PDP_Image_Position_1a_Desert_Titanium_Colour__MY-EN.jpg?v=1725947597&width=1920" alt="Image 1">  
+                <img src="images\Iphone12pro.jpg" alt="Image 1">  
             </div>  
             <div class="slide">  
-                <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/ipad-10th-gen-finish-select-202212-pink-wifi_FMT_WHH?wid=1200&hei=630&fmt=jpeg&qlt=95&.v=1670856074755" alt="Image 2">  
+                <img src="images\Iphone 15 pro.jpg" alt="Image 2">  
             </div>  
             <div class="slide">  
-                <img src="https://i.insider.com/5c9b83d5ee52ef14e01ed949?width=1200&format=jpeg" alt="Image 3">  
+                <img src="images\iphone 14pro.jpg" alt="Image 3">  
             </div>  
         </div>  
         <div class="dots">  
@@ -205,11 +206,12 @@ if (!isset($_SESSION['user_id'])) {
 
 
         <div class="section-3">
-            <img src=https://www.apple.com/newsroom/images/2024/09/apple-introduces-iphone-16-and-iphone-16-plus/article/Apple-iPhone-16-hero-240909_inline.jpg.large.jpg>
-            <h1>
+            <div> <img src=https://www.apple.com/newsroom/images/2024/09/apple-introduces-iphone-16-and-iphone-16-plus/article/Apple-iPhone-16-hero-240909_inline.jpg.large.jpg> </div>
+           <div> <h1>
                 iPhone 16 Pro Leather Case <br>
                 with MagSafe - Ink
                 </h1>
+                </div>
         </div>
         <div class="menu-items">
             <div class="store">
