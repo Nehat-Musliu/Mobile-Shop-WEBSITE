@@ -19,5 +19,23 @@ class Database {
     public function getConnection() {
         return $this->conn;
     }
-}
+    
+    public function query($sql) {
+        return $this->conn->query($sql);
+    }
+
+    public function getProducts() {
+        $query = "SELECT * FROM products";
+        $stmt = $this->query($query); // Ekzekuto query-n
+        $products = [];
+        
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            // Krijo një array për çdo produkt dhe shto në listë
+            $products[] = $row;
+        }
+        
+        return $products; // Kthe array-n
+    }
+    }
+
 ?>
