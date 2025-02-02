@@ -55,6 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <label for="register-password">Password</label>  
                         <input type="password" id="register-password" name="password" placeholder="Enter your password" required>  
                     </div>   
+                    <input type="hidden" name="role" value="user">  <!-- Roli është gjithmonë "user" -->
                     <button type="submit">Register</button>  
                     <p class="switch-form">Already have an account? <a href="login.php">Login here</a></p>  
                 </form>  
