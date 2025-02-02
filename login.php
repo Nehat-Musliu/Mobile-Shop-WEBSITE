@@ -14,7 +14,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Attempt to log in
     if ($user->login($email, $password)) {
-        header("Location: HomePage.php"); // Redirect to home page
+        if ($_SESSION['role'] == 'admin') {
+            header("Location: dashboard.php"); // Nëse është admin, shkon në dashboard
+        } else {
+            header("Location: Homepage.php"); // Nëse është user, shkon në homepage
+        }
         exit;
     } else {
         echo "Invalid login credentials!";
