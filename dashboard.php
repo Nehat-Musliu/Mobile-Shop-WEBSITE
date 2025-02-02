@@ -2,8 +2,8 @@
 session_start();
 
 // Check if user is logged in and is an admin
-if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
-    header("Location: HomePage.php"); // Redirect if not admin
+iif (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+header("Location: HomePage.php"); // Redirect if not admin
     exit();
 }
 ?>
