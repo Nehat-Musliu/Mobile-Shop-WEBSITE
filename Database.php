@@ -26,12 +26,15 @@ class Database {
 
     public function getProducts() {
         $query = "SELECT * FROM products";
-        $stmt = $this->query($query);
+        $stmt = $this->query($query); // Ekzekuto query-n
         $products = [];
+        
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            $products[] = new Product($row['name'], $row['price'], $row['photo']);
+            // Krijo një array për çdo produkt dhe shto në listë
+            $products[] = $row;
         }
-        return $products;
+        
+        return $products; // Kthe array-n
     }
     }
 
