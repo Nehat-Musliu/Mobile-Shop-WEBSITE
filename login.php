@@ -14,12 +14,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Attempt to log in
     if ($user->login($email, $password)) {
-        if ($_SESSION['role'] == 'admin') {
-            header("Location: dashboard.php"); // Nëse është admin, shkon në dashboard
-        } else {
-            header("Location: Homepage.php"); // Nëse është user, shkon në homepage
-        }
+        session_start();
+        $_SESSION['user_id'] = $row['id'];
+        $_SESSION['email'] = $row['email'];
+        $_SESSION['role'] = $row['role']; // Sigurohuni që roli ruhet si 'admin'
+        header("Location: dashboard.php");
         exit;
+    }
     } else {
         echo "Invalid login credentials!";
     }
