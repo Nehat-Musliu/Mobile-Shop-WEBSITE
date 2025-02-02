@@ -154,10 +154,16 @@ foreach ($products as $product) {
     $productPrice = $product['price'];  
     $productImage = $product['photo'];
 
+    // Kontrollo nëse foto ekziston
+    $imagePath = 'images/' . $productImage;
+    if (!file_exists($imagePath)) {
+        $imagePath = 'images/default.jpg'; // Foto default nëse fotoja nuk ekziston
+    }
+
     // Krijo HTML me variabla PHP
     $productHTML = '
     <div class="product" data-price="' . $productPrice . '">
-        <img src="images/' . $productImage . '" alt="' . $productName . '">
+        <img src="' . $imagePath . '" alt="' . $productName . '">
         <h2>' . $productName . '</h2>
         <p class="price">$' . $productPrice . '</p>
         <button onclick="addToCart(\'' . $productName . '\', ' . $productPrice . ')">Add To Cart</button>
