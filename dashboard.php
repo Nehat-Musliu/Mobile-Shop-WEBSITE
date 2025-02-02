@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-// Check if user is logged in and is an admin
-if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
-    header("Location: HomePage.php"); // Redirect if not admin
+// Check if user is logged in and has admin role
+if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+    header("Location: Homepage.php"); // Redirect to homepage if not admin
     exit();
 }
 ?>
@@ -24,7 +24,7 @@ if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
     <nav>
         <a href="dashboard.php">Dashboard</a>
         <a href="manage_users.php">Manage Users</a>
-        <a href="log out.php">Logout</a>
+        <a href="logout.php">Logout</a> <!-- Ensure that you have a logout page -->
     </nav>
 </header>
 
