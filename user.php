@@ -7,8 +7,8 @@ class User {
         $this->conn = $db;
     }
 
-    public function register($name, $surname, $email, $password) {
-        $query = "INSERT INTO {$this->table_name} (name, surname, email, password) VALUES (:name, :surname, :email, :password)";
+    public function register($name, $surname, $email, $password,$role) {
+        $query = "INSERT INTO {$this->table_name} (name, surname, email, password) VALUES (:name, :surname, :email, :password, :role)";
 
         $stmt = $this->conn->prepare($query);
 
@@ -17,6 +17,7 @@ class User {
         $stmt->bindParam(':surname', $surname);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':password', password_hash($password, PASSWORD_DEFAULT)); // Hashing the password
+        $stmt->bindParam(':role', $role); 
 
         if ($stmt->execute()) {
             return true;
@@ -39,9 +40,11 @@ class User {
                 session_start();
                 $_SESSION['user_id'] = $row['id'];
                 $_SESSION['email'] = $row['email'];
+                $_SESSION['role'] = $row['role']; // Ruaj rolin në sesion
                 return true;
             }
         }
         return false;
     }
-}
+           
+    }
