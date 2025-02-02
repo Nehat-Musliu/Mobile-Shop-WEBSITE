@@ -1,4 +1,21 @@
+<?php
 
+include 'Database.php'; 
+
+
+$db = new Database();
+
+
+$query = "SELECT * FROM products";  
+$results = $db->query($query);
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPhones - Apple Store</title>
     <style>
            * {  
             margin: 0;  
@@ -111,61 +128,107 @@
             font-weight: bold;  
         }  
     </style>
-<?php
-include 'Database.php';
-include 'productt.php';
-
-$db = new Database();
-$products = $db->getProducts();
-?>
-
-<!DOCTYPE html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iPhones - Apple Store</title>
 </head>
-    <h1>iPhone Collection</h1>
-    <div class="product-container">
-        <?php foreach ($products as $product) { ?>
-            <div class="product">
-                <img src="images/<?= $product->getPhoto(); ?>" alt="<?= $product->getName(); ?>">
-                <h2><?= $product->getName(); ?></h2>
-                <p class="price">$<?= $product->getPrice(); ?></p>
-                <button onclick="addToCart('<?= $product->getName(); ?>', <?= $product->getPrice(); ?>)">Add To Cart</button>
-            </div>
-        <?php } ?>
+<body>
+    <div class="header">
+        <a href="Product.html" class="back-button">← Back</a>
+        <h1>iPhone Collection</h1>
+        <p>Explore our range of iPhones from iPhone 11 to iPhone 16</p>
+        <P>Payment at the Bottom of the Page</P>
     </div>
-    
+
+   
+    <div class="product-container">
+    <?php
+include_once 'Database.php'; // Përfshi klasën e bazës
+
+// Krijo një instancë të objektit Database
+$db = new Database();
+
+// Merr të gjitha produktet nga baza e të dhënave
+$products = $db->getProducts(); // Funksioni getProducts merr të gjitha produktet
+
+// Shfaq produktet
+foreach ($products as $product) {
+    $productName = $product['name'];  
+    $productPrice = $product['price'];  
+    $productImage = $product['photo'];
+
+    // Krijo HTML me variabla PHP
+    $productHTML = '
+    <div class="product" data-price="' . $productPrice . '">
+        <img src="images/' . $productImage . '" alt="' . $productName . '">
+        <h2>' . $productName . '</h2>
+        <p class="price">$' . $productPrice . '</p>
+        <button onclick="addToCart(\'' . $productName . '\', ' . $productPrice . ')">Add To Cart</button>
+    </div>
+    ';
+
+    // Shfaq produktin
+    echo $productHTML;
+}
+?>
+    </div>
+
     <div class="cart">
         <h2>Cart</h2>
         <div id="cart-items"></div>
         <strong>Total: $<span id="total-amount">0</span></strong>
     </div>
 
+    <div class="payment" id="payment-section">
+        <h2>Payment Information</h2>
+        <form onsubmit="return processPayment(event)">
+            <input type="text" placeholder="Name" required>
+            <input type="text" placeholder="Surname" required>
+            <input type="text" placeholder="Address" required>
+            <input type="text" placeholder="Phone Number" required>
+            <input type="text" placeholder="Bank Account Number" required>
+            <button type="submit">Continue with Payment</button>
+        </form>
+    </div>
+
+    <div id="message"></div>
+
     <script>
-        let cart = [];
-        let total = 0;
+        let cart = [];  
+        let total = 0;  
 
-        function addToCart(productName, price) {
-            cart.push({ name: productName, price: price });
-            total += price;
-            updateCart();
-        }
+        function addToCart(productName, price) {  
+            cart.push({name: productName, price: price});  
+            total += price;  
+            updateCart();  
+        }  
 
-        function updateCart() {
-            const cartItemsDiv = document.getElementById('cart-items');
-            cartItemsDiv.innerHTML = '';
-            cart.forEach((item, index) => {
-                cartItemsDiv.innerHTML += `<div>${item.name} - $${item.price} <button onclick="removeFromCart(${index})">Delete</button></div>`;
-            });
-            document.getElementById('total-amount').innerText = total;
-        }
+        function updateCart() {  
+            const cartItemsDiv = document.getElementById('cart-items');  
+            cartItemsDiv.innerHTML = '';  
+            cart.forEach((item, index) => {  
+                cartItemsDiv.innerHTML += `  
+                    <div class="cart-item">  
+                        ${item.name} - $${item.price}  
+                        <button onclick="removeFromCart(${index})">Delete</button>  
+                    </div>  
+                `;  
+            });  
+            document.getElementById('total-amount').innerText = total;  
+            document.getElementById('payment-section').style.display = cart.length > 0 ? 'block' : 'none';  
+        }  
 
-        function removeFromCart(index) {
-            total -= cart[index].price;
-            cart.splice(index, 1);
-            updateCart();
+        function removeFromCart(index) {  
+            total -= cart[index].price;  
+            cart.splice(index, 1);  
+            updateCart();  
+        }  
+
+        function processPayment(event) {  
+            event.preventDefault();  
+            document.getElementById('message').innerText = 'Thank you,your order will reach you within two days.';  
+            cart = [];  
+            total = 0;  
+            updateCart();  
+            document.getElementById('payment-section').style.display = 'none';  
+            return false;  
         }
     </script>
 
