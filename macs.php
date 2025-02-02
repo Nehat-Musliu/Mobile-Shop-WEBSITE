@@ -1,10 +1,19 @@
-<!DOCTYPE html>  
-<html lang="sq">  
-<head>  
-    <meta charset="UTF-8">  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <title>iPads - Dyqani Apple</title>  
-    <style>  
+<?php
+include 'Database.php'; 
+
+$db = new Database();
+
+$query = "SELECT * FROM macs";  // Ndrysho query për të marrë të dhënat nga tabela macs
+$results = $db->query($query);
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mac Collection - Apple Store</title>
+    <style>
         * {  
             margin: 0;  
             padding: 0;  
@@ -69,7 +78,7 @@
         .product:hover {  
             transform: scale(1.05);  
         }  
-        .cart, .payment {  
+        .cart {  
             padding: 20px;  
             background: #fff;  
             margin: 20px;  
@@ -89,6 +98,14 @@
             border-radius: 5px;  
             padding: 5px;  
         }  
+        .payment {  
+            padding: 20px;  
+            background: #fff;  
+            margin: 20px;  
+            border-radius: 8px;  
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  
+            display: none;  
+        }  
         .payment form input {  
             margin-bottom: 10px;  
             padding: 8px;  
@@ -107,113 +124,75 @@
             color: green;  
             font-weight: bold;  
         }  
-    </style>  
-<!DOCTYPE html>  
-<html lang="en">  
-<head>  
-    <meta charset="UTF-8">  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <title>iPad Collection</title>  
-    <style>  
-        body {  
-            font-family: Lato, sans-serif;  
-            margin: 0;  
-            padding: 0;  
-            background-color: #f4f4f4;  
-        }  
-        .header {  
-            text-align: center;  
-            padding: 20px;  
-        }  
-        .product-container {  
-            display: flex;  
-            flex-wrap: wrap;  
-            justify-content: center;  
-            padding: 20px;  
-        }  
-        .product {  
-            border: 1px solid #ddd;  
-            border-radius: 10px;  
-            margin: 10px;  
-            padding: 20px;   
-            text-align: center;  
-            width: 180px; /* Set a fixed width for product cards */  
-        }  
-        .price {  
-            font-size: 18px;  
-            color: #333; 
-        }  
-        .cart {  
-            text-align: center;  
-            margin-top: 20px;  
-        }  
-        .payment {  
-            text-align: center;  
-            margin-top: 20px;  
-        }  
-    </style>  
-</head>  
-<body>  
-    <div class="header">  
-        <a href="product.html" class="back-button">← Back</a>   
-        <h1>iPad Collection</h1>  
-        <p>Explore our range of iPads from iPad mini to iPad Pro</p>  
-        <p>Payment at the Bottom of the Page</p>   
-    </div>  
-    <div class="product-container">  
-        <div class="product" data-price="$399">  
-            <img src="images/ipadmini-removebg-preview.png" alt="iPad Mini">  
-            <h2>iPad Mini</h2>  
-            <p class="price">$399</p>  
-            <button onclick="addToCart('iPad Mini', 399)">Add To Cart</button>  
-        </div>   
-        <div class="product" data-price="$499">  
-            <img src="images/Ipad10.jpg" alt="iPad 10">  
-            <h2>iPad 10</h2>  
-            <p class="price">$499</p>  
-            <button onclick="addToCart('iPad 10', 499)">Add To Cart</button>  <!-- Corrected product name and price -->  
-        </div>  
-        <div class="product" data-price="$599">  
-            <img src="images/Ipad Air.jpg" alt="iPad Air">  
-            <h2>iPad Air</h2>   
-            <p class="price">$599</p>  
-            <button onclick="addToCart('iPad Air', 599)">Add To Cart</button>  
-        </div>  
-        <div class="product" data-price="$799">  
-            <img src="images/Ipad11pro.jpg" alt="iPad Pro 11">  
-            <h2>iPad Pro 11</h2>  
-            <p class="price">$799</p>    
-            <button onclick="addToCart('iPad Pro 11', 799)">Add To Cart</button>  
-        </div>   
-        <div class="product" data-price="$1,099">  
-            <img src="images/Ipad12.9.jpg" alt="iPad Pro 12.9">  
-            <h2>iPad Pro 12.9</h2>  
-            <p class="price">$1,099</p>  
-            <button onclick="addToCart('iPad Pro 12.9', 1099)">Add To Cart</button>  
-        </div>   
-    </div>  
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="Product.html" class="back-button">← Back</a>
+        <h1>Mac Collection</h1>  <!-- Ndrysho titullin -->
+        <p>Explore our range of MacBooks and desktops</p> <!-- Përditëso përshkrimin -->
+        <p>Payment at the Bottom of the Page</p>
+    </div>
 
-    <div class="cart">  
-        <h2>Cart</h2>  
-        <div id="cart-items"></div>  
-        <strong>Total: $<span id="total-amount">0</span></strong>  
-    </div>  
+    <div class="product-container">
+    <?php
+    include_once 'Database.php'; // Përfshi klasën e bazës
 
-    <div class="payment" id="payment-section" style="display:none;">  
-        <h2>Payment Information</h2>  
-        <form onsubmit="return processPayment(event)">  
-            <input type="text" placeholder="Name" required>  
-            <input type="text" placeholder="Surname" required>  
-            <input type="text" placeholder="Address" required>  
-            <input type="text" placeholder="Phone Number" required>  
-            <input type="text" placeholder="Bank Account Number" required>  
-            <button type="submit">Continue with Payment</button>  
-        </form>  
-    </div>  
+    // Krijo një instancë të objektit Database
+    $db = new Database();
 
-    <div id="message"></div>  
+    // Merr të gjitha produktet nga tabela macs
+    $macs = $db->query("SELECT * FROM macs"); // Ndrysho query-n për tabelën macs
 
-    <script>  
+    // Shfaq produktet
+    foreach ($macs as $mac) {
+        $productName = $mac['name'];  
+        $productPrice = $mac['price'];  
+        $productImage = $mac['image'];
+
+        // Kontrollo nëse foto ekziston
+        $imagePath = 'images/' . $productImage;
+        if (!file_exists($imagePath)) {
+            $imagePath = 'images/default.jpg'; // Foto default nëse fotoja nuk ekziston
+        }
+
+        // Krijo HTML me variabla PHP
+        $productHTML = '
+        <div class="product" data-price="' . $productPrice . '">
+            <img src="' . $imagePath . '" alt="' . $productName . '">
+            <h2>' . $productName . '</h2>
+            <p class="price">$' . $productPrice . '</p>
+            <button onclick="addToCart(\'' . $productName . '\', ' . $productPrice . ')">Add To Cart</button>
+        </div>
+        ';
+
+        // Shfaq produktin
+        echo $productHTML;
+    }
+    ?>
+    </div>
+
+    <div class="cart">
+        <h2>Cart</h2>
+        <div id="cart-items"></div>
+        <strong>Total: $<span id="total-amount">0</span></strong>
+    </div>
+
+    <div class="payment" id="payment-section">
+        <h2>Payment Information</h2>
+        <form onsubmit="return processPayment(event)">
+            <input type="text" placeholder="Name" required>
+            <input type="text" placeholder="Surname" required>
+            <input type="text" placeholder="Address" required>
+            <input type="text" placeholder="Phone Number" required>
+            <input type="text" placeholder="Bank Account Number" required>
+            <button type="submit">Continue with Payment</button>
+        </form>
+    </div>
+
+    <div id="message"></div>
+
+    <script>
         let cart = [];  
         let total = 0;  
 
@@ -252,7 +231,8 @@
             updateCart();  
             document.getElementById('payment-section').style.display = 'none';  
             return false;  
-        }  
-    </script>  
-</body>  
+        }
+    </script>
+
+</body>
 </html>
