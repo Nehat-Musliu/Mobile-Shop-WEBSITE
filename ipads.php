@@ -163,8 +163,9 @@ $results = $db->query($query);
             <h2>' . $productName . '</h2>
             <p class="price">$' . $productPrice . '</p>
             <button onclick="addToCart(\'' . $productName . '\', ' . $productPrice . ')">Add To Cart</button>
-        </div>
-        ';
+        </div>';
+        
+
 
         // Shfaq produktin
         echo $productHTML;

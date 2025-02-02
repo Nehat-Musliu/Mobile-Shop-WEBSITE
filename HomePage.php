@@ -26,8 +26,11 @@ if (!isset($_SESSION['user_id'])) {
                 <li><a href="Product.html">Product</a></li>  
                 <li><a href="About Us.html" >About Us</a></li>  
                 <li><a href="Contact Us.html">Contact Us</a></li>  
-                <li><a href="Support.html">Support</a></li>  
-                <img  class="cross" src="./images/close-116-512.png" alt="cross">
+                <li><a href="Support.html">Support</a></li>     
+                <li><a href="log out.html">Log Out</a></li>
+                
+                     
+            </html>
             </ul>
             <div class="nav-icons">
            
@@ -278,3 +281,9 @@ if (!isset($_SESSION['user_id'])) {
     </script>
 </body>
 </html>
+
+
+
+<style>
+/* Stilimi për navbar dhe menu */
+

@@ -1,0 +1,47 @@
+/* Stilimi për navbar dhe menu */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: #333;
+    padding: 10px 20px;
+    color: white;
+}
+
+.navbar ul {
+    display: flex;
+    list-style-type: none;
+}
+
+.navbar ul li {
+    margin-right: 20px;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.navbar ul li a:hover {
+    color: #ff5733; /* Ngjyrë e ndryshuar kur kaloni me maus */
+}
+
+/* Butoni Logout */
+.logout {
+    text-align: right; /* Vendos butonin në krahun e djathtë */
+}
+
+.logout-btn {
+    background-color: #f44336; /* Ngjyrë e kuqe për butonin */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease; /* Efekti kur kaloni me maus */
+}
+
+.logout-btn:hover {
+    background-color: #d32f2f; /* Ngjyrë e errët për butonin kur kalon me maus */
+}
