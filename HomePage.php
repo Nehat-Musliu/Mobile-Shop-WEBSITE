@@ -30,9 +30,7 @@ if (!isset($_SESSION['user_id'])) {
                 <img  class="cross" src="./images/close-116-512.png" alt="cross">
             </ul>
             <div class="nav-icons">
-                <img src="./images/search-icon-png-9969(1).png" alt="search">
-                <img src="./images/shopping-bag.png" alt="shopping">
-               
+           
             </div>
         </div>
        
@@ -102,15 +100,110 @@ if (!isset($_SESSION['user_id'])) {
                  </div>
             </div>
         </div>
-        <div class="apple-events">
-            <h1>
-                Let's Explore Apple Events
-                photos </h1>
-                <div class="event-pictures">
-                    <img src="./images/APPLE-EVENT-SEP-2023-WALLPAPER-mod1.jpg" alt="events">
-                    <img src="./images/apple-event-wallpaper-iphone.png" alt="events">
-                </div>
-        </div>
+        <style>  
+        body {  
+            font-family: Lato, sans-serif;  
+            margin: 0;  
+            padding: 0;  
+            background-color: #f4f4f4;  
+        }  
+        .slider {  
+            position: relative;  
+            max-width: 500px; /* Set the max width for the slider */  
+            padding-bottom: 100px0px;
+            margin: auto; /* Center the slider */  
+            overflow: hidden; /* Hide overflow */  
+            border: 2px solid #ddd; /* Border around the slider */  
+            border-radius: 10px; /* Rounded corners */  
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow */  
+        }  
+        .slides {  
+            display: flex; /* Arrange slides in a row */  
+            transition: transform 0.5s ease; /* Animation for slide transition */  
+        }  
+        .slide {  
+            min-width: 100%; /* Each slide takes full width */  
+            box-sizing: border-box; /* Adjust box model */  
+        }  
+        img {  
+            width: 100%; /* Make images responsive */  
+            border-radius: 10px; /* Rounded corners for images */  
+        }  
+        .dots {  
+            text-align: center; /* Center the dots */  
+            padding: 10px 0; /* Padding for the dots */  
+        }  
+        .dot {  
+            display: inline-block;  
+            width: 10px;  
+            height: 10px;  
+            margin: 0 5px;  
+            background-color: #bbb;  
+            border-radius: 50%; /* Make dots circular */  
+            cursor: pointer; /* Pointer on hover */  
+        }  
+        .active {  
+            background-color: #717171; /* Darker color for active dot */  
+        }  
+    </style>  
+</head>  
+<body>  
+    <div class="slider">  
+        <div class="slides">  
+            <div class="slide">  
+                <img src="https://shop.switch.com.my/cdn/shop/files/iPhone_16_Pro_Desert_Titanium_PDP_Image_Position_1a_Desert_Titanium_Colour__MY-EN.jpg?v=1725947597&width=1920" alt="Image 1">  
+            </div>  
+            <div class="slide">  
+                <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/ipad-10th-gen-finish-select-202212-pink-wifi_FMT_WHH?wid=1200&hei=630&fmt=jpeg&qlt=95&.v=1670856074755" alt="Image 2">  
+            </div>  
+            <div class="slide">  
+                <img src="https://i.insider.com/5c9b83d5ee52ef14e01ed949?width=1200&format=jpeg" alt="Image 3">  
+            </div>  
+        </div>  
+        <div class="dots">  
+            <span class="dot" onclick="showSlide(0)"></span>  
+            <span class="dot" onclick="showSlide(1)"></span>  
+            <span class="dot" onclick="showSlide(2)"></span>  
+        </div>  
+    </div>  
+
+    <script>  
+        let currentSlide = 0;  
+
+        function showSlide(index) {  
+            const slides = document.querySelector('.slides');  
+            const totalSlides = document.querySelectorAll('.slide').length;  
+
+            // Update currentSlide to the selected index  
+            currentSlide = index;  
+
+            // Move slides  
+            slides.style.transform = `translateX(-${currentSlide * 100}%)`;  
+
+            // Update dots  
+            updateDots();  
+        }  
+
+        function updateDots() {  
+            const dots = document.querySelectorAll('.dot');  
+            dots.forEach((dot, index) => {  
+                dot.classList.toggle('active', index === currentSlide);  
+            });  
+        }  
+
+        // Auto-slide every 5 seconds  
+        setInterval(() => {  
+            currentSlide = (currentSlide + 1) % 3; // Wrap around to first slide  
+            showSlide(currentSlide);  
+        }, 5000);  
+
+        // Initial display  
+        showSlide(currentSlide);  
+    </script>  
+
+
+
+
         <div class="section-3">
             <img src=https://www.apple.com/newsroom/images/2024/09/apple-introduces-iphone-16-and-iphone-16-plus/article/Apple-iPhone-16-hero-240909_inline.jpg.large.jpg>
             <h1>

@@ -108,13 +108,57 @@
             font-weight: bold;  
         }  
     </style>  
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>iPad Collection</title>  
+    <style>  
+        body {  
+            font-family: Lato, sans-serif;  
+            margin: 0;  
+            padding: 0;  
+            background-color: #f4f4f4;  
+        }  
+        .header {  
+            text-align: center;  
+            padding: 20px;  
+        }  
+        .product-container {  
+            display: flex;  
+            flex-wrap: wrap;  
+            justify-content: center;  
+            padding: 20px;  
+        }  
+        .product {  
+            border: 1px solid #ddd;  
+            border-radius: 10px;  
+            margin: 10px;  
+            padding: 20px;   
+            text-align: center;  
+            width: 180px; /* Set a fixed width for product cards */  
+        }  
+        .price {  
+            font-size: 18px;  
+            color: #333; 
+        }  
+        .cart {  
+            text-align: center;  
+            margin-top: 20px;  
+        }  
+        .payment {  
+            text-align: center;  
+            margin-top: 20px;  
+        }  
+    </style>  
 </head>  
 <body>  
     <div class="header">  
         <a href="product.html" class="back-button">← Back</a>   
         <h1>iPad Collection</h1>  
         <p>Explore our range of iPads from iPad mini to iPad Pro</p>  
-        <P>Payment at the Bottom of the Page</P> 
+        <p>Payment at the Bottom of the Page</p>   
     </div>  
     <div class="product-container">  
         <div class="product" data-price="$399">  
@@ -123,24 +167,24 @@
             <p class="price">$399</p>  
             <button onclick="addToCart('iPad Mini', 399)">Add To Cart</button>  
         </div>   
-         <div class="product" data-price="$499">  
-                <img src="images/Ipad10.jpg" alt="iPad 10">  
-                <h2>iPad 10</h2>  
-                <p class="price">$499</p>  
-            <button onclick="addToCart('iPad Air', 599)">Add To Cart</button>  
+        <div class="product" data-price="$499">  
+            <img src="images/Ipad10.jpg" alt="iPad 10">  
+            <h2>iPad 10</h2>  
+            <p class="price">$499</p>  
+            <button onclick="addToCart('iPad 10', 499)">Add To Cart</button>  <!-- Corrected product name and price -->  
         </div>  
         <div class="product" data-price="$599">  
             <img src="images/Ipad Air.jpg" alt="iPad Air">  
-            <h2>iPad Air</h2> 
+            <h2>iPad Air</h2>   
             <p class="price">$599</p>  
-            <button onclick="addToCart('iPad Pro 11', 799)">Add To Cart</button>  
+            <button onclick="addToCart('iPad Air', 599)">Add To Cart</button>  
         </div>  
         <div class="product" data-price="$799">  
             <img src="images/Ipad11pro.jpg" alt="iPad Pro 11">  
             <h2>iPad Pro 11</h2>  
             <p class="price">$799</p>    
-            <button onclick="addToCart('iPad Pro 12.9', 1099)">Add To Cart</button>  
-        </div> 
+            <button onclick="addToCart('iPad Pro 11', 799)">Add To Cart</button>  
+        </div>   
         <div class="product" data-price="$1,099">  
             <img src="images/Ipad12.9.jpg" alt="iPad Pro 12.9">  
             <h2>iPad Pro 12.9</h2>  
@@ -202,7 +246,7 @@
 
         function processPayment(event) {  
             event.preventDefault();  
-            document.getElementById('message').innerText = 'Thank you,your order will reach you within two days.';  
+            document.getElementById('message').innerText = 'Thank you, your order will reach you within two days.';  
             cart = [];  
             total = 0;  
             updateCart();  
@@ -211,4 +255,4 @@
         }  
     </script>  
 </body>  
-</html>  
+</html>
