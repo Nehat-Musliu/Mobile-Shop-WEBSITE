@@ -26,25 +26,23 @@ class User {
     }
 
     public function login($email, $password) {
-        $query = "SELECT id, name, surname, email, password FROM {$this->table_name} WHERE email = :email";
-
+        $query = "SELECT id, name, surname, email, password, role FROM {$this->table_name} WHERE email = :email";
+    
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(':email', $email);
         $stmt->execute();
-
-        // Check if a record exists
+    
+        // Kontrollo nëse një rekord ekziston
         if ($stmt->rowCount() > 0) {
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
             if (password_verify($password, $row['password'])) {
-                // Start the session and store user data
-                session_start();
+                // Filloni sesionin dhe ruani të dhënat e përdoruesit dhe rolin
                 $_SESSION['user_id'] = $row['id'];
                 $_SESSION['email'] = $row['email'];
                 $_SESSION['role'] = $row['role']; // Ruaj rolin në sesion
                 return true;
             }
         }
-        return false;
+        return false; // Kredencialet nuk janë të sakta
     }
-           
-    }
+}

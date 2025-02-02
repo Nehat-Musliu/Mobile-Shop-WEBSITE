@@ -1,9 +1,15 @@
 <?php
 session_start();
+include_once 'Database.php';
+include_once 'userRepository.php';
 
-// Check if user is logged in and has admin role
+// Sigurohuni që po krijoni një lidhje të databazës
+$db = new Database();
+$connection = $db->getConnection();  // Merrni lidhjen e databazës
+
+// Kontrolloni nëse përdoruesi është loguar si admin
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
-    header("Location: Homepage.php"); // Redirect to homepage if not admin
+    header("Location: Homepage.php"); // Rilidhni në homepage nëse nuk është admin
     exit();
 }
 ?>
@@ -23,36 +29,38 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     <h1>Welcome, Admin!</h1>
     <nav>
         <a href="dashboard.php">Dashboard</a>
-        <a href="manage_users.php">Manage Users</a>
-        <a href="logout.php">Logout</a> <!-- Ensure that you have a logout page -->
+        <a href="logout.php">Logout</a>
     </nav>
 </header>
 
 <main>
     <h2>Admin Dashboard</h2>
-    <p>Here, you can manage users, view reports, and perform admin tasks.</p>
+    
 
     <?php
-    include_once '../repository/userRepository.php';
-
-    $userRepository = new UserRepository();
+    // Krijoni një instancë të UserRepository dhe kaloni lidhjen e databazës
+    $userRepository = new UserRepository($connection); // Kaloni lidhjen në konstruktor
     $users = $userRepository->getAllUsers();
 
-    // Displaying the user data in a table
-    echo "<table>";
-    echo "<tr><th>ID</th><th>Name</th><th>Surname</th><th>Username</th><th>Password</th></tr>";
+    // Kontrolloni nëse keni përdorues dhe shfaqni tabelën
+    if ($users) {
+        echo "<table>";
+        echo "<tr><th>ID</th><th>Name</th><th>Surname</th><th>Email</th><th>Password</th></tr>";
 
-    foreach($users as $user){
-        echo "<tr>
-                <td>{$user['id']}</td>
-                <td>{$user['Name']}</td>
-                <td>{$user['Surname']}</td>
-                <td>{$user['email']}</td>
-                <td>{$user['Password']}</td>
-              </tr>";
+        foreach ($users as $user) {
+            echo "<tr>
+                    <td>{$user['id']}</td>
+                    <td>{$user['name']}</td> <!-- Emri në databazë -->
+                    <td>{$user['surname']}</td> <!-- Mbiemri në databazë -->
+                    <td>{$user['email']}</td>  <!-- Emaili në databazë -->
+                   <td>{$user['PASSWORD']}</td>  <!-- Përdorni kolonën 'password' nëse kjo është emri i saktë -->
+                  </tr>";
+        }
+
+        echo "</table>";
+    } else {
+        echo "No users found.";
     }
-
-    echo "</table>";
     ?>
 </main>
 
